@@ -7,42 +7,61 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: #faf7f5;
+      color: #1f1f1f;
       font-family: Georgia, serif;
-      color: #2b2b2b;
-      text-align: center;
     }
-    .container {
-      max-width: 640px;
-      padding: 24px;
+
+    .page {
+      max-width: 720px;
+      padding: 120px 24px;
+      margin: 0 auto;
     }
+
     h1 {
       font-weight: normal;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
     }
+
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+
+    .link {
+      font-size: 0.95rem;
+    }
+
+    .link a {
+      text-decoration: none;
+      color: #1f1f1f;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      padding-bottom: 2px;
+    }
+
+    .link a:hover {
+      border-bottom-color: rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="page">
     <h1>For Aish.</h1>
-    <p>
-      This is something I made quietly,<br />
-      just for you.
-    </p>
-    <p style="margin-top:40px;">
-  <a href="fun.html" style="text-decoration:none; color:#555;">
-    There’s a fun corner here →
-  </a>
-</p>
+
+    <p>I made this quietly.</p>
+    <p>Just for you.</p>
+
+    <div class="spacer"></div>
+
+    <div class="link">
+      <a href="fun.html">A small fun corner, only for us →</a>
+    </div>
   </div>
 </body>
 </html>
