@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fun Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      background: #faf7f5;
+      font-family: Georgia, serif;
+      color: #2b2b2b;
+    }
+    .container {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 24px;
+    }
+    h1 {
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .joke-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .joke-card:hover {
+      transform: translateY(-4px);
+    }
+    .line {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .hidden {
+      display: none;
+    }
+    .final {
+      font-style: italic;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Things only we understand</h1>
+
+    <div class="joke-card" onclick="revealJoke()">
+      <div class="line">“Ice cream khaogi?”</div>
+      <div id="reply" class="line hidden">Yes / No</div>
+      <div id="final" class="line final hidden">“…Kashmir jaogi?” 🎶</div>
+    </div>
+  </div>
+
+  <script>
+    function revealJoke() {
+      document.getElementById("reply").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("final").style.display = "block";
+      }, 800);
+    }
+  </script>
+</body>
+</html>
