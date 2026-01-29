@@ -11,58 +11,123 @@
       font-family: Georgia, serif;
       color: #2b2b2b;
     }
+
     .container {
-      max-width: 700px;
-      margin: 80px auto;
+      max-width: 720px;
+      margin: 100px auto;
       padding: 24px;
     }
+
     h1 {
       font-weight: normal;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
+
     .joke-card {
-      background: #fff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.25s ease;
     }
+
     .joke-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
+
     .line {
       font-size: 1.1rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.6;
     }
+
     .hidden {
       display: none;
     }
+
     .final {
       font-style: italic;
-      margin-top: 16px;
+      margin-top: 14px;
+    }
+
+    .spacer {
+      height: 28px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>Things only we understand</h1>
 
-    <div class="joke-card" onclick="revealJoke()">
-      <div class="line">“Ice cream khaogi?”</div>
-      <div id="reply" class="line hidden">Yes / No</div>
-      <div id="final" class="line final hidden">“…Kashmir jaogi?” 🎶</div>
+    <!-- Joke 1 -->
+    <div class="joke-card">
+      <div class="line"><strong>“Ice cream khaogi?”</strong></div>
+      <div class="line hidden reveal">Yes / No</div>
+      <div class="line final hidden reveal">“…Kashmir jaogi?” 🎶</div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Joke 2 -->
+    <div class="joke-card">
+      <div class="line"><strong>You’re unbelievably clumsy.</strong></div>
+      <div class="line hidden reveal">
+        Tripping. Slipping. Falling for no reason.<br><br>
+        And somehow still landing<br>
+        right into my heart every time.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Joke 3 -->
+    <div class="joke-card">
+      <div class="line"><strong>You do this thing.</strong></div>
+      <div class="line hidden reveal">
+        You gently play with my belly like it’s the most natural thing in the world.<br><br>
+        No words. No reason.<br>
+        Just… us.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Joke 4 -->
+    <div class="joke-card">
+      <div class="line"><strong>You never run out of ways to say you love me.</strong></div>
+      <div class="line hidden reveal">
+        Sometimes in words.<br>
+        Sometimes randomly.<br>
+        Sometimes when I least expect it.<br><br>
+        And I hope you know —<br>
+        I hear every single one.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Joke 5 -->
+    <div class="joke-card">
+      <div class="line"><strong>I forgot what we argue about.</strong></div>
+      <div class="line hidden reveal">
+        Which probably means it was never that important<br>
+        in the first place.
+      </div>
     </div>
   </div>
 
   <script>
-    function revealJoke() {
-      document.getElementById("reply").style.display = "block";
-      setTimeout(() => {
-        document.getElementById("final").style.display = "block";
-      }, 800);
-    }
+    document.querySelectorAll(".joke-card").forEach(card => {
+      card.addEventListener("click", () => {
+        card.querySelectorAll(".reveal").forEach(el => {
+          el.style.display = "block";
+        });
+      });
+    });
   </script>
+
 </body>
 </html>
