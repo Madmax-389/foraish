@@ -11,10 +11,9 @@
       background: #faf7f5;
       font-family: Georgia, serif;
       color: #2b2b2b;
-      position: relative; /* IMPORTANT */
     }
 
-    /* Floral background */
+    /* Floral background layer */
     body::before {
       content: "";
       position: fixed;
@@ -22,10 +21,13 @@
       background: url("images/floral-frame.png") center/cover no-repeat;
       opacity: 0.12;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
     }
 
+    /* Main content layer */
     .container {
+      position: relative;
+      z-index: 1;
       max-width: 720px;
       margin: 120px auto;
       padding: 24px;
@@ -49,4 +51,53 @@
 
     .joke-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+    }
+
+    .line {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeIn 0.4s forwards;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .final {
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .spacer {
+      height: 36px;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Things only we understand</h1>
+
+    <!-- Ice cream joke -->
+    <div class="joke-card delayed">
+      <div class="line" style="opacity:1;"><strong>“Ice cream khaogi?”</strong></div>
+      <div class="line hidden step-one">Yes / No</div>
+      <div class="line hidden final step-two">“…Kashmir jaogi?” 🎶</div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="joke-card">
+      <div class="line" style="opacity:1;"><strong>You are unbelievably clumsy.</strong></div>
+      <div class="line hidden reveal">
+        Tripping. Slipping. Falling for no reason.<br><br>
+        And somehow still landing right into my heart every time.
+      </div>
