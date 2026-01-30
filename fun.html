@@ -14,33 +14,36 @@
 
     .container {
       max-width: 720px;
-      margin: 100px auto;
+      margin: 120px auto;
       padding: 24px;
     }
 
     h1 {
       font-weight: normal;
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
 
     .joke-card {
       background: #ffffff;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      padding: 30px 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
       cursor: pointer;
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .joke-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
     }
 
     .line {
       font-size: 1.1rem;
+      line-height: 1.7;
       margin-bottom: 14px;
-      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 0.4s forwards;
     }
 
     .hidden {
@@ -49,11 +52,17 @@
 
     .final {
       font-style: italic;
-      margin-top: 14px;
+      margin-top: 10px;
     }
 
     .spacer {
-      height: 28px;
+      height: 36px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -62,18 +71,18 @@
   <div class="container">
     <h1>Things only we understand</h1>
 
-    <!-- Joke 1 -->
-    <div class="joke-card">
-      <div class="line"><strong>“Ice cream khaogi?”</strong></div>
-      <div class="line hidden reveal">Yes / No</div>
-      <div class="line final hidden reveal">“…Kashmir jaogi?” 🎶</div>
+    <!-- Joke 1 (with delay) -->
+    <div class="joke-card delayed">
+      <div class="line visible"><strong>“Ice cream khaogi?”</strong></div>
+      <div class="line hidden step-one">Yes / No</div>
+      <div class="line hidden final step-two">“…Kashmir jaogi?” 🎶</div>
     </div>
 
     <div class="spacer"></div>
 
     <!-- Joke 2 -->
     <div class="joke-card">
-      <div class="line"><strong>You’re unbelievably clumsy.</strong></div>
+      <div class="line visible"><strong>You’re unbelievably clumsy.</strong></div>
       <div class="line hidden reveal">
         Tripping. Slipping. Falling for no reason.<br><br>
         And somehow still landing<br>
@@ -85,7 +94,7 @@
 
     <!-- Joke 3 -->
     <div class="joke-card">
-      <div class="line"><strong>You do this thing.</strong></div>
+      <div class="line visible"><strong>You do this thing.</strong></div>
       <div class="line hidden reveal">
         You gently play with my belly like it’s the most natural thing in the world.<br><br>
         No words. No reason.<br>
@@ -97,7 +106,7 @@
 
     <!-- Joke 4 -->
     <div class="joke-card">
-      <div class="line"><strong>You never run out of ways to say you love me.</strong></div>
+      <div class="line visible"><strong>You never run out of ways to say you love me.</strong></div>
       <div class="line hidden reveal">
         Sometimes in words.<br>
         Sometimes randomly.<br>
@@ -111,7 +120,7 @@
 
     <!-- Joke 5 -->
     <div class="joke-card">
-      <div class="line"><strong>I forgot what we argue about.</strong></div>
+      <div class="line visible"><strong>I forgot what we argue about.</strong></div>
       <div class="line hidden reveal">
         Which probably means it was never that important<br>
         in the first place.
@@ -122,6 +131,22 @@
   <script>
     document.querySelectorAll(".joke-card").forEach(card => {
       card.addEventListener("click", () => {
+
+        // Special delayed joke
+        if (card.classList.contains("delayed")) {
+          const stepOne = card.querySelector(".step-one");
+          const stepTwo = card.querySelector(".step-two");
+
+          if (stepOne.style.display !== "block") {
+            stepOne.style.display = "block";
+            setTimeout(() => {
+              stepTwo.style.display = "block";
+            }, 900);
+          }
+          return;
+        }
+
+        // Normal jokes
         card.querySelectorAll(".reveal").forEach(el => {
           el.style.display = "block";
         });
