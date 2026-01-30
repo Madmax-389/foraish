@@ -13,7 +13,7 @@
       color: #2b2b2b;
     }
 
-    /* Floral background layer */
+    /* Floral background */
     body::before {
       content: "";
       position: fixed;
@@ -24,7 +24,6 @@
       z-index: 0;
     }
 
-    /* Main content layer */
     .container {
       position: relative;
       z-index: 1;
@@ -40,26 +39,22 @@
     }
 
     .joke-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       padding: 30px 32px;
       border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      backdrop-filter: blur(2px);
+      transition: transform 0.25s ease;
     }
 
     .joke-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
     }
 
     .line {
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 14px;
-      opacity: 0;
-      animation: fadeIn 0.4s forwards;
     }
 
     .hidden {
@@ -74,10 +69,6 @@
     .spacer {
       height: 36px;
     }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
   </style>
 </head>
 
@@ -88,7 +79,7 @@
 
     <!-- Ice cream joke -->
     <div class="joke-card delayed">
-      <div class="line" style="opacity:1;"><strong>“Ice cream khaogi?”</strong></div>
+      <div class="line"><strong>“Ice cream khaogi?”</strong></div>
       <div class="line hidden step-one">Yes / No</div>
       <div class="line hidden final step-two">“…Kashmir jaogi?” 🎶</div>
     </div>
@@ -96,8 +87,65 @@
     <div class="spacer"></div>
 
     <div class="joke-card">
-      <div class="line" style="opacity:1;"><strong>You are unbelievably clumsy.</strong></div>
+      <div class="line"><strong>You are unbelievably clumsy.</strong></div>
       <div class="line hidden reveal">
         Tripping. Slipping. Falling for no reason.<br><br>
         And somehow still landing right into my heart every time.
       </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="joke-card">
+      <div class="line"><strong>You do this thing.</strong></div>
+      <div class="line hidden reveal">
+        You gently play with my belly like it’s the most natural thing in the world.<br><br>
+        Just… us.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="joke-card">
+      <div class="line"><strong>You never run out of ways to say you love me.</strong></div>
+      <div class="line hidden reveal">
+        And I hope you know — I hear every single one.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="joke-card">
+      <div class="line"><strong>I forgot what we argue about.</strong></div>
+      <div class="line hidden reveal">
+        Which probably means it was never that important.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".joke-card").forEach(card => {
+      card.addEventListener("click", () => {
+
+        if (card.classList.contains("delayed")) {
+          const one = card.querySelector(".step-one");
+          const two = card.querySelector(".step-two");
+
+          if (one.style.display !== "block") {
+            one.style.display = "block";
+            setTimeout(() => {
+              two.style.display = "block";
+            }, 900);
+          }
+          return;
+        }
+
+        card.querySelectorAll(".reveal").forEach(el => {
+          el.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
