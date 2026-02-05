@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Us 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f6, #fffaf3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #444;
+    }
+
+    .card {
+      background: white;
+      max-width: 440px;
+      width: 100%;
+      padding: 40px 30px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+      animation: fadeIn 0.6s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 28px;
+    }
+
+    .lock {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+
+    .timer {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #ff8fab;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 25px;
+      background: #ffb6c1;
+      color: white;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff9fb1;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <!-- LOCKED STATE -->
+    <div id="locked">
+      <div class="lock">🔒</div>
+      <h1>For us, on Valentine’s Day 💕</h1>
+      <p>
+        Some things are meant to be opened slowly. <br>
+        Come back on the 14th.
+      </p>
+      <div class="timer" id="countdown"></div>
+    </div>
+
+    <!-- UNLOCKED STATE -->
+    <div id="unlocked" class="hidden">
+      <h1>Happy Valentine’s Day 🤍</h1>
+      <p>
+        This isn’t about a day. <br>
+        It’s about choosing you — quietly, gently, every day.
+      </p>
+
+      <p>
+        With you, love feels calm. <br>
+        It feels safe. <br>
+        It feels like home.
+      </p>
+
+      <a href="inside.html" class="btn">Little things about us 🌸</a>
+    </div>
+
+  </div>
+
+  <script>
+    const unlockDate = new Date("2026-02-14T00:00:00");
+    const now = new Date();
+
+    const locked = document.getElementById("locked");
+    const unlocked = document.getElementById("unlocked");
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const current = new Date();
+      const diff = unlockDate - current;
+
+      if (diff <= 0) {
+        locked.classList.add("hidden");
+        unlocked.classList.remove("hidden");
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      countdownEl.textContent =
+        `${days} days ${hours} hours ${minutes} minutes`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
+
+</body>
+</html>
