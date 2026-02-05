@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Just a little fun 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fff6fb, #fef9f4);
+      color: #444;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 420px;
+      width: 100%;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      animation: fadeIn 0.6s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 25px;
+      background: #ffb6c1;
+      color: white;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background: #ff9fb1;
+      transform: scale(1.05);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <!-- STEP 1 -->
+    <div id="step1">
+      <h1>Before we go any further… 🌸</h1>
+      <p>I just want you to smile for a second.</p>
+      <button class="btn" onclick="goToStep(2)">Okay 😌</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="hidden">
+      <h1>Quick question 💭</h1>
+      <p>Do you know how you make me feel?</p>
+
+      <div class="options">
+        <button class="btn" onclick="goToStep(3)">🤍 Calm</button>
+        <button class="btn" onclick="goToStep(3)">🥰 Loved</button>
+        <button class="btn" onclick="goToStep(3)">🌸 Safe</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="hidden">
+      <h1>That’s exactly it 💖</h1>
+      <p>
+        That’s how you make me feel too. <br>
+        Every single day.
+      </p>
+      <button class="btn" onclick="goToStep(4)">What’s next? 💭</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="hidden">
+      <h1>Just one more thing… 💌</h1>
+      <p>
+        There’s something waiting for us. <br>
+        Not today, but very soon.
+      </p>
+      <a href="valentine.html" class="btn">A little patience 💕</a>
+    </div>
+
+  </div>
+
+  <script>
+    function goToStep(step) {
+      document.querySelectorAll('.card > div').forEach(div => {
+        div.classList.add('hidden');
+      });
+      document.getElementById('step' + step).classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
