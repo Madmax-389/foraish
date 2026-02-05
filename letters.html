@@ -5,116 +5,111 @@
   <title>Letters 🤍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
     body {
-      background: #fffaf7;
-      color: #444;
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #faf7f5;
+      color: #2b2b2b;
     }
 
-    .wrapper {
+    .page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 100px 20px;
+    }
+
+    .container {
       max-width: 720px;
-      margin: 80px auto;
-      padding: 0 20px;
+      width: 100%;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
       text-align: center;
-      margin-bottom: 10px;
+      font-weight: normal;
+      margin-bottom: 20px;
     }
 
-    .subtitle {
+    /* Intro note */
+    .letters-intro {
       text-align: center;
-      color: #777;
-      margin-bottom: 60px;
       font-size: 0.95rem;
+      color: #777;
+      margin: 30px auto 60px;
+      max-width: 420px;
+      line-height: 1.6;
     }
 
-    .letter {
-      background: white;
-      padding: 28px 26px;
+    /* Letter cards */
+    .letter-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 28px 32px;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
       margin-bottom: 40px;
     }
 
-    .date {
-      font-size: 0.8rem;
+    .letter-date {
+      font-size: 0.85rem;
       color: #999;
       margin-bottom: 12px;
     }
 
-    .text {
-      font-size: 0.95rem;
+    .letter-text {
+      font-size: 1.05rem;
       line-height: 1.7;
-      color: #555;
-    }
-
-    .back {
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .back a {
-      text-decoration: none;
-      color: #ff9fb1;
-      font-size: 0.95rem;
-    }
-
-    .back a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="wrapper">
-    <h1>Little notes 🤍</h1>
-    <div class="subtitle">
-      Things I wanted you to know.
-    </div>
+  <div class="page">
+    <div class="container">
 
-    <!-- LETTER 1 -->
-    <div class="letter">
-      <div class="date">30 January</div>
-      <div class="text">
-        I don’t always say things perfectly, but I hope you know —
-        choosing you has been the easiest, calmest decision of my life.
+      <h1>Letters 🤍</h1>
+
+      <!-- Intro note -->
+      <div class="letters-intro">
+        These aren’t meant to be read all at once.<br>
+        They’re just things I wanted you to know, when I felt them.
       </div>
-    </div>
 
-    <!-- LETTER 2 -->
-    <div class="letter">
-      <div class="date">2nd February</div>
-      <div class="text">
-        Loving you doesn’t feel dramatic or loud.
-        It feels steady. Safe. Like something I want to protect quietly.
+      <!-- Letter 1 -->
+      <div class="letter-card">
+        <div class="letter-date">30 January</div>
+        <div class="letter-text">
+          I don’t always say things perfectly, but I hope you know — choosing you
+          has been the easiest, calmest decision of my life.
+        </div>
       </div>
-    </div>
 
-    <!-- LETTER 3 -->
-    <div class="letter">
-      <div class="date">5th february (This is the day you slept and I am pretending to study :)</div>
-      <div class="text">
-        If the world ever feels heavy, I hope this little space reminds you
-        that you’re never alone in it.
+      <!-- Letter 2 -->
+      <div class="letter-card">
+        <div class="letter-date">2 February</div>
+        <div class="letter-text">
+          Loving you doesn’t feel dramatic or loud. It feels steady. Safe.
+          Like something I want to protect quietly.
+        </div>
       </div>
-    </div>
 
-    <div class="back">
-      <a href="inside.html">← back to us</a>
+      <!-- Letter 3 -->
+      <div class="letter-card">
+        <div class="letter-date">
+          5 February <span style="font-size:0.8rem; color:#aaa;">
+          (This is the day you slept and I was pretending to study 🙂)
+          </span>
+        </div>
+        <div class="letter-text">
+          If the world ever feels heavy, I hope this little space reminds you
+          that you’re never alone in it.
+        </div>
+      </div>
+
+      <!-- Add new letters BELOW this line -->
+      <!-- Copy a letter-card block and paste it here whenever you want -->
+
     </div>
   </div>
 
