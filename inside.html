@@ -69,7 +69,7 @@
 
     .footer-link {
       text-align: center;
-      margin-top: 60px;
+      margin-top: 50px;
     }
 
     .footer-link a {
@@ -80,6 +80,38 @@
 
     .footer-link a:hover {
       text-decoration: underline;
+    }
+
+    /* 🧸 Bubu styles */
+    #bubu {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-size: 32px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    #bubu:hover {
+      transform: scale(1.1);
+    }
+
+    #bubu-message {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      z-index: 1000;
+    }
+
+    .bubu-card {
+      background: white;
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      font-size: 0.85rem;
+      color: #555;
+      max-width: 200px;
     }
   </style>
 </head>
@@ -141,7 +173,19 @@
     </div>
   </div>
 
+  <!-- 🧸 Bubu Placeholder -->
+  <div id="bubu">🧸</div>
+
+  <div id="bubu-message" class="hidden">
+    <div class="bubu-card">
+      <p>Hi… I’m Bubu 🐻</p>
+      <p>I’m still learning about you two 🤍</p>
+      <p>Ask me again soon.</p>
+    </div>
+  </div>
+
   <script>
+    // Joke cards logic
     document.querySelectorAll(".joke-card").forEach(card => {
       card.addEventListener("click", () => {
 
@@ -162,6 +206,14 @@
           el.style.display = "block";
         });
       });
+    });
+
+    // 🧸 Bubu toggle
+    const bubu = document.getElementById("bubu");
+    const bubuMsg = document.getElementById("bubu-message");
+
+    bubu.addEventListener("click", () => {
+      bubuMsg.classList.toggle("hidden");
     });
   </script>
 
